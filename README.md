@@ -1,1 +1,1 @@
-Training ReStore project
+# Training ReStore project
