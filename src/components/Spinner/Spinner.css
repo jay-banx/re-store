@@ -1,0 +1,70 @@
+@keyframes dual-ball-o {
+  0% {
+    opacity: 1;
+    transform: translate(0 0);
+  }
+  49.99% {
+    opacity: 1;
+    transform: translate(40px, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(40px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes dual-ball {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.dual-ball div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 30px;
+  left: 10px;
+}
+.dual-ball div:nth-child(1) {
+  background: #e90c59;
+  animation: dual-ball 1s linear infinite;
+  animation-delay: -0.5s;
+}
+.dual-ball div:nth-child(2) {
+  background: #46dff0;
+  animation: dual-ball 1s linear infinite;
+  animation-delay: 0s;
+}
+.dual-ball div:nth-child(3) {
+  background: #e90c59;
+  animation: dual-ball-o 1s linear infinite;
+  animation-delay: -0.5s;
+}
+.spinner {
+  width: 68px;
+  height: 68px;
+  display: inline-block;
+  overflow: hidden;
+  background: #ffffff;
+}
+.dual-ball {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.68);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.dual-ball div {
+  box-sizing: content-box;
+}
