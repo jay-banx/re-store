@@ -1,5 +1,5 @@
 class BookstoreService {
-  getBooks = () => [
+  data = [
     {
       id: 1,
       title: "Production-Ready Microservices",
@@ -17,6 +17,13 @@ class BookstoreService {
         "https://images-na.ssl-images-amazon.com/images/I/414CRjLjwgL._SX403_BO1,204,203,200_.jpg",
     },
   ];
+
+  getBooks = () =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(this.data);
+      }, 1000);
+    });
 }
 
 export default BookstoreService;
