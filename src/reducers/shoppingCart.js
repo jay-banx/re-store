@@ -17,10 +17,18 @@ const updateCartItem = (book, item = {}, quantity) => {
   };
 };
 
+const updateCartTotal = (cartTotal, newItem, item) => {
+  return cartTotal - (item ? item.total : 0) + newItem.total;
+};
+
+const updateCartCount = (cartCount, newItem, item) => {
+  return cartCount - (item ? item.count : 0) + newItem.count;
+};
+
 const updateOrder = (state, bookId, quantity) => {
   const {
     booksList: { books },
-    shoppingCart: { cartItems },
+    shoppingCart: { cartItems, cartCount, cartTotal },
   } = state;
 
   const book = books.find(({ id }) => id === bookId);
@@ -29,8 +37,9 @@ const updateOrder = (state, bookId, quantity) => {
   const newItem = updateCartItem(book, item, quantity);
 
   return {
-    cartTotal: 0,
     cartItems: updateCartItems(cartItems, newItem, itemIndex),
+    cartCount: updateCartCount(cartCount, newItem, item),
+    cartTotal: updateCartTotal(cartTotal, newItem, item),
   };
 };
 
@@ -38,6 +47,7 @@ const updateShoppingCart = (state, action) => {
   if (state === undefined) {
     return {
       cartItems: [],
+      cartCount: 0,
       cartTotal: 0,
     };
   }
