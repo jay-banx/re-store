@@ -18,14 +18,21 @@ class BookstoreService {
     },
   ];
 
+  // getBooks = () =>
+  //   new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (Math.random() > 0.75) {
+  //         reject(new Error("Something bad happened"));
+  //       } else {
+  //         resolve(this.data);
+  //       }
+  //     }, 1000);
+  //   });
+
   getBooks = () =>
-    new Promise((resolve, reject) => {
+    new Promise((resolve) => {
       setTimeout(() => {
-        if (Math.random() > 0.75) {
-          reject(new Error("Something bad happened"));
-        } else {
-          resolve(this.data);
-        }
+        resolve(this.data);
       }, 1000);
     });
 }

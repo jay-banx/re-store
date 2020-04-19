@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -29,7 +30,31 @@ const BooksList = ({ books, onAddedBookToCart }) => {
   );
 };
 
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object),
+  onAddedBookToCart: PropTypes.func,
+};
+
+BooksList.defaultProps = {
+  books: [],
+  onAddedBookToCart: () => {},
+};
+
 class BooksListContainer extends Component {
+  static propTypes = {
+    books: PropTypes.arrayOf(PropTypes.object),
+    loading: PropTypes.bool,
+    error: PropTypes.object,
+    onAddedBookToCart: PropTypes.func,
+  };
+
+  static defaultProps = {
+    books: [],
+    loading: true,
+    error: null,
+    onAddedBookToCart: () => {},
+  };
+
   componentDidMount() {
     this.props.fetchBooks();
   }

@@ -3,11 +3,7 @@ import React from "react";
 import ShoppingCartTable from "../ShoppingCartTable";
 
 const CartPage = () => {
-  return (
-    <div>
-      <ShoppingCartTable />
-    </div>
-  );
+  return <ShoppingCartTable />;
 };
 
 export default CartPage;

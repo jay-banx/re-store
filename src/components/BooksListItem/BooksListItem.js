@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./BooksListItem.css";
 
 const BooksListItem = ({ book, onAddedBookToCart }) => {
@@ -21,6 +23,16 @@ const BooksListItem = ({ book, onAddedBookToCart }) => {
       </div>
     </div>
   );
+};
+
+BooksListItem.propTypes = {
+  book: PropTypes.object,
+  onAddedBookToCart: PropTypes.func,
+};
+
+BooksListItem.defaultProps = {
+  book: {},
+  onAddedBookToCart: () => {},
 };
 
 export default BooksListItem;

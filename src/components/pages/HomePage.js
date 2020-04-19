@@ -2,11 +2,7 @@ import React from "react";
 import BooksList from "../BooksList";
 
 const HomePage = () => {
-  return (
-    <div>
-      <BooksList />
-    </div>
-  );
+  return <BooksList />;
 };
 
 export default HomePage;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "./ShoppingCartTable.css";
@@ -68,6 +69,22 @@ const ShoppingCartTable = ({
       <div className="total">Total: ${total}</div>
     </div>
   );
+};
+
+ShoppingCartTable.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+  total: PropTypes.number,
+  onDecrease: PropTypes.func,
+  onIncrease: PropTypes.func,
+  onDelete: PropTypes.func,
+};
+
+ShoppingCartTable.defaultProps = {
+  items: [],
+  total: 0,
+  onDecrease: () => {},
+  onIncrease: () => {},
+  onDelete: () => {},
 };
 
 const mapStateToProps = (state) => {

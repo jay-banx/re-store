@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -19,6 +20,16 @@ const ShopHeader = ({ count, total }) => {
       </Link>
     </header>
   );
+};
+
+ShopHeader.propTypes = {
+  count: PropTypes.number,
+  total: PropTypes.number,
+};
+
+ShopHeader.defaultProps = {
+  count: 0,
+  total: 0,
 };
 
 const mapStateToProps = (state) => {
